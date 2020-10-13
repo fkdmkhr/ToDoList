@@ -1,0 +1,38 @@
+﻿@page
+@model ToDoList.Pages.FindModel
+
+@{
+    ViewBag["Title"] = "Find";
+}
+
+<h1>Find</h1>
+
+<form asp-page="Find">
+    <div class="row">
+        <input type="text" name="find" class="col-10 form-control" />
+        <input type="submit" value="Find"
+               class="col-2 btn btn-primary" />
+    </div>
+</form>
+
+<table class="table mt-5">
+    <thead>
+        <try>
+            <th>UserId</th>
+            <th>UserName</th>
+        </try>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.People)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
